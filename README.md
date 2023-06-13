@@ -4,7 +4,7 @@ This project is one part of Open-Innovation-1(开放性创新实践) for Chongxi
 
 If you are interested, you can refer to [report.pdf](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/Report.pdf) for more details, and feel free to contact me and discuss about the project.
 
-![System Overview](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/demo.jpg)
+![System Overview](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/demo.jpg =200)
 
 ![System Overview](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/demo1.jpg)
 
