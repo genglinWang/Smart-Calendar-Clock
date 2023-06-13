@@ -2,7 +2,7 @@
 
 This project is one part of Open-Innovation-1(开放性创新实践) for Chongxin Collage(崇新学堂), School of Information Science and Engineering, Shandong university. I'm happy to provide my solution on how to establish and create a smart bluetooth calendar based on STC89C52 single-chip.
 
-It is a simple but meaningful system design project about sensors, single-chip and IOT. If you are interested, please refer to [report.pdf](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/Report.pdf) for more details, and feel free to contact me and discuss about the project.
+It is a simple but meaningful system design project about sensors, single-chip and IOT. If you are interested, please refer to [report.pdf](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/Report.pdf) for more details, and feel free to contact me, discuss about the project and pick faults:dizzy_face:.
 
 ## System Overview
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/demo.jpg" width="60%">
@@ -37,14 +37,14 @@ It is a simple but meaningful system design project about sensors, single-chip a
 
 ## Schematic
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/Schematic.jpg" width="70%">
-The schematic is designed by [立创EDA](https://lceda.cn/). It can help developers find the proper schematic and corresponding PCB Package of their favourite sensors and modules.
+The schematic is designed by https://lceda.cn/. It can help developers find the proper schematics and corresponding PCB Packages of their favourite sensors and modules.
 
-My schematic is selected and shown in the teaching PowerPoint of Open-Innovation-1 in 2023 Spring.:relieved::heart:
+My schematic was selected and shown in the teaching PowerPoint of Open-Innovation-1 in 2023 Spring.:relieved::heart:
 
 ## PCB Layout
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/PCBup.jpg" width="70%">
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/PCBdown.jpg" width="70%">
-All the [PCB layout](https://github.com/genglinWang/Smart-Calendar-Clock/tree/main/PCB-layout) is developped by Altium-Desinger.
+All PCB layouts are developped by Altium-Desinger.
 
 # Software
 You can refer to [src](https://github.com/genglinWang/Smart-Calendar-Clock/tree/main/src) for drivers of sensors and modules. All the source code is developped by keil.
