@@ -1,6 +1,6 @@
 # Smart-Calendar-Clock:open_mouth:
 
-This project is one part of Open-Innovation-1(开放性创新实践) for Chongxin Collage(崇新学堂), School of Information Science and Engineering, Shandong university. I'm happy to provide my solution on how to establish and create a smart bluetooth calendar based on STC89C52 single-chip.
+This project is one part of Open-Innovation-1(开放性创新实践) for Chongxin Collage(崇新学堂), School of Information Science and Engineering, Shandong university, China. I'm happy to provide my solution on how to establish and create a smart bluetooth calendar based on STC89C52 single-chip.
 
 It is a simple but meaningful system design project about sensors, single-chip and IOT. If you are interested, please refer to [report.pdf](https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/Report.pdf) for more details, and feel free to contact me, discuss about the project and pick faults:dizzy_face:.
 
