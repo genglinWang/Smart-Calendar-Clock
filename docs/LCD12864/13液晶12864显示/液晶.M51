@@ -1,0 +1,323 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    03/01/2022  16:05:00  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\KEILV5\C51\BIN\BL51.EXE 7920_580b.obj TO Òº¾§ RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  7920_580b.obj (7920_580B)
+  D:\KEILV5\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  Òº¾§ (7920_580B)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0007H     UNIT         _DATA_GROUP_
+                    000FH     0011H                  *** GAP ***
+            BIT     0020H.0   0000H.1   UNIT         _BIT_GROUP_
+                    0020H.1   0000H.7                *** GAP ***
+            IDATA   0021H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0482H     UNIT         ?CO?7920_580B
+            CODE    0485H     00A9H     UNIT         ?PR?_DISPLAYGRAPHIC?7920_580B
+            CODE    052EH     0074H     UNIT         ?PR?INITINAL?7920_580B
+            CODE    05A2H     0053H     UNIT         ?PR?_LCD_MESG?7920_580B
+            CODE    05F5H     0052H     UNIT         ?PR?INITINA2?7920_580B
+            CODE    0647H     003CH     UNIT         ?PR?MAIN?7920_580B
+            CODE    0683H     0031H     UNIT         ?PR?_CONVERT?7920_580B
+            CODE    06B4H     002DH     UNIT         ?PR?_TRANSFERDATA?7920_580B
+            CODE    06E1H     0024H     UNIT         ?PR?_DELAYMS?7920_580B
+            CODE    0705H     0024H     UNIT         ?PR?_DELAY?7920_580B
+            CODE    0729H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   Òº¾§ (7920_580B)
+
+
+SEGMENT                                  BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT                 START    LENGTH     START    LENGTH
+-------------------------------------------------------------------------
+?C_C51STARTUP                         -----    -----      -----    -----
+  +--> ?PR?MAIN?7920_580B
+
+?PR?MAIN?7920_580B                    -----    -----      -----    -----
+  +--> ?PR?INITINA2?7920_580B
+  +--> ?CO?7920_580B
+  +--> ?PR?_DISPLAYGRAPHIC?7920_580B
+  +--> ?PR?_DELAYMS?7920_580B
+  +--> ?PR?INITINAL?7920_580B
+  +--> ?PR?_DELAY?7920_580B
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/01/2022  16:05:00  PAGE 2
+
+
+  +--> ?PR?_LCD_MESG?7920_580B
+
+?PR?INITINA2?7920_580B                -----    -----      -----    -----
+  +--> ?PR?_DELAY?7920_580B
+  +--> ?PR?_TRANSFERDATA?7920_580B
+
+?PR?_TRANSFERDATA?7920_580B           0020H.0  0000H.1    000EH    0001H
+  +--> ?PR?_DELAY?7920_580B
+  +--> ?PR?_CONVERT?7920_580B
+
+?PR?_DISPLAYGRAPHIC?7920_580B         -----    -----      0008H    0006H
+  +--> ?PR?_TRANSFERDATA?7920_580B
+
+?PR?INITINAL?7920_580B                -----    -----      -----    -----
+  +--> ?PR?_DELAY?7920_580B
+  +--> ?PR?_TRANSFERDATA?7920_580B
+
+?PR?_LCD_MESG?7920_580B               -----    -----      0008H    0003H
+  +--> ?PR?_TRANSFERDATA?7920_580B
+  +--> ?PR?_DELAY?7920_580B
+
+
+
+SYMBOL TABLE OF MODULE:  Òº¾§ (7920_580B)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7920_580B
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  C:0709H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0485H         PUBLIC        _DisplayGraphic
+  C:05F5H         PUBLIC        initina2
+  B:00A0H.5       PUBLIC        RS
+  C:0647H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:05A2H         PUBLIC        _lcd_mesg
+  B:00A0H.7       PUBLIC        E
+  C:0003H         PUBLIC        IC_DAT
+  C:06BFH         PUBLIC        _TransferData
+  C:052EH         PUBLIC        initinal
+  C:0683H         PUBLIC        _Convert
+  B:00A0H.2       PUBLIC        PSB
+  D:00C8H         PUBLIC        T2CON
+  B:00A0H.4       PUBLIC        RES
+  B:00A0H.6       PUBLIC        WRD
+  C:0085H         PUBLIC        pic2
+  C:06E5H         PUBLIC        _delayms
+  C:0044H         PUBLIC        IC_DAT2
+  D:00D0H         PUBLIC        PSW
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/01/2022  16:05:00  PAGE 3
+
+
+  -------         PROC          _CONVERT
+  D:0007H         SYMBOL        In_Date
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0006H         SYMBOL        Out_Date
+  D:0005H         SYMBOL        temp
+  -------         ENDDO         
+  C:0683H         LINE#         53
+  C:0683H         LINE#         54
+  C:0683H         LINE#         55
+  C:0686H         LINE#         56
+  C:0691H         LINE#         57
+  C:0691H         LINE#         58
+  C:069EH         LINE#         59
+  C:06AEH         LINE#         60
+  C:06B1H         LINE#         61
+  C:06B3H         LINE#         62
+  -------         ENDPROC       _CONVERT
+  -------         PROC          INITINAL
+  C:052EH         LINE#         64
+  C:052EH         LINE#         65
+  C:052EH         LINE#         66
+  C:0535H         LINE#         67
+  C:0537H         LINE#         68
+  C:053EH         LINE#         69
+  C:0540H         LINE#         70
+  C:0547H         LINE#         71
+  C:0549H         LINE#         72
+  C:0550H         LINE#         73
+  C:0557H         LINE#         74
+  C:055AH         LINE#         75
+  C:0561H         LINE#         76
+  C:0568H         LINE#         77
+  C:056FH         LINE#         78
+  C:0572H         LINE#         79
+  C:0579H         LINE#         80
+  C:057CH         LINE#         81
+  C:0583H         LINE#         82
+  C:0586H         LINE#         83
+  C:058DH         LINE#         84
+  C:0594H         LINE#         85
+  C:059BH         LINE#         86
+  -------         ENDPROC       INITINAL
+  -------         PROC          INITINA2
+  C:05F5H         LINE#         95
+  C:05F5H         LINE#         96
+  C:05F5H         LINE#         97
+  C:05FCH         LINE#         98
+  C:05FEH         LINE#         99
+  C:0605H         LINE#         100
+  C:0607H         LINE#         101
+  C:060EH         LINE#         102
+  C:0610H         LINE#         103
+  C:0617H         LINE#         105
+  C:061EH         LINE#         106
+  C:0621H         LINE#         107
+  C:0628H         LINE#         108
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/01/2022  16:05:00  PAGE 4
+
+
+  C:062FH         LINE#         109
+  C:0636H         LINE#         110
+  C:0639H         LINE#         111
+  C:0640H         LINE#         112
+  -------         ENDPROC       INITINA2
+  -------         PROC          MAIN
+  C:0647H         LINE#         121
+  C:0647H         LINE#         122
+  C:0647H         LINE#         123
+  C:0647H         LINE#         124
+  C:0647H         LINE#         125
+  C:064AH         LINE#         127
+  C:0651H         LINE#         128
+  C:0658H         LINE#         130
+  C:065BH         LINE#         131
+  C:065EH         LINE#         132
+  C:0665H         LINE#         133
+  C:0668H         LINE#         134
+  C:066BH         LINE#         136
+  C:066EH         LINE#         137
+  C:0671H         LINE#         138
+  C:0678H         LINE#         139
+  C:067BH         LINE#         140
+  C:067EH         LINE#         141
+  C:0681H         LINE#         142
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCD_MESG
+  D:0008H         SYMBOL        adder1
+  -------         DO            
+  D:000AH         SYMBOL        i
+  -------         ENDDO         
+  C:05A2H         LINE#         151
+  C:05A6H         LINE#         152
+  C:05A6H         LINE#         154
+  C:05ADH         LINE#         155
+  C:05B0H         LINE#         156
+  C:05BEH         LINE#         157
+  C:05BEH         LINE#         158
+  C:05C1H         LINE#         159
+  C:05C9H         LINE#         160
+  C:05CDH         LINE#         162
+  C:05D4H         LINE#         163
+  C:05D7H         LINE#         164
+  C:05E5H         LINE#         165
+  C:05E5H         LINE#         166
+  C:05E8H         LINE#         167
+  C:05F0H         LINE#         168
+  C:05F4H         LINE#         169
+  -------         ENDPROC       _LCD_MESG
+  C:06BAH         SYMBOL        L?0064
+  -------         PROC          L?0063
+  -------         ENDPROC       L?0063
+  C:06BAH         SYMBOL        L?0064
+  -------         PROC          _TRANSFERDATA
+  D:000EH         SYMBOL        data1
+  B:0020H.0       SYMBOL        DI
+  C:06BFH         LINE#         177
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/01/2022  16:05:00  PAGE 5
+
+
+  C:06C1H         LINE#         178
+  C:06C1H         LINE#         179
+  C:06C3H         LINE#         180
+  C:06C7H         LINE#         181
+  C:06CEH         LINE#         182
+  C:06D5H         LINE#         183
+  C:06D7H         LINE#         184
+  C:06DEH         LINE#         185
+  C:06E0H         LINE#         186
+  -------         ENDPROC       _TRANSFERDATA
+  C:06E1H         SYMBOL        L?0066
+  -------         PROC          L?0065
+  -------         ENDPROC       L?0065
+  C:06E1H         SYMBOL        L?0066
+  -------         PROC          _DELAYMS
+  D:0006H         SYMBOL        n
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:06E5H         LINE#         194
+  C:06E5H         LINE#         195
+  C:06E5H         LINE#         197
+  C:06EFH         LINE#         198
+  C:0704H         LINE#         199
+  -------         ENDPROC       _DELAYMS
+  C:0705H         SYMBOL        L?0062
+  -------         PROC          L?0061
+  -------         ENDPROC       L?0061
+  C:0705H         SYMBOL        L?0062
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        m
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0709H         LINE#         207
+  C:0709H         LINE#         208
+  C:0709H         LINE#         210
+  C:0713H         LINE#         211
+  C:0728H         LINE#         212
+  -------         ENDPROC       _DELAY
+  -------         PROC          _DISPLAYGRAPHIC
+  D:0008H         SYMBOL        adder
+  -------         DO            
+  D:000AH         SYMBOL        i
+  D:000CH         SYMBOL        j
+  -------         ENDDO         
+  C:0485H         LINE#         220
+  C:0489H         LINE#         221
+  C:0489H         LINE#         225
+  C:048EH         LINE#         226
+  C:048EH         LINE#         227
+  C:0498H         LINE#         228
+  C:049FH         LINE#         229
+  C:04A4H         LINE#         230
+  C:04A4H         LINE#         231
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  03/01/2022  16:05:00  PAGE 6
+
+
+  C:04ADH         LINE#         232
+  C:04B5H         LINE#         233
+  C:04C8H         LINE#         234
+  C:04DBH         LINE#         236
+  C:04E0H         LINE#         237
+  C:04E0H         LINE#         238
+  C:04EAH         LINE#         239
+  C:04F1H         LINE#         240
+  C:04F6H         LINE#         241
+  C:04F6H         LINE#         242
+  C:04FFH         LINE#         243
+  C:0507H         LINE#         244
+  C:051AH         LINE#         245
+  C:052DH         LINE#         246
+  -------         ENDPROC       _DISPLAYGRAPHIC
+  -------         ENDMOD        7920_580B
+
+Program Size: data=16.1 xdata=0 code=1845
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
