@@ -39,9 +39,9 @@ It is a simple but meaningful system design project about sensors, single-chip a
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/Schematic.jpg" width="70%">
 The schematic is designed by https://lceda.cn/. It can help developers find the proper schematics and corresponding PCB Packages of their favourite sensors and modules.
 
-Pls note that the PCB board is powered by common 5V chargers, i.e. mobile phone chargers. And you can change the power interface into type-c, rather than DC-005c, which is uncommon and you have to buy one additionally.
+Pls note that my PCB board is powered by common 5V chargers, i.e. mobile phone chargers, and USB-DC005 cable. Since DC005 is uncommon, you can change the power interface into type-c, micro or USB, just using your phone charger and cable to power the PCB board (except for Apple users:joy:).
 
-My schematic was selected and shown in the teaching PowerPoint of Open-Innovation-1 in 2023 Spring.:relieved::heart:
+My schematic was selected and shown in the teaching PowerPoint of Open-Innovation-1 in 2023 Spring.:stuck_out_tongue_closed_eyes::heart:
 
 ## PCB Layout
 <img decoding="async" src="https://github.com/genglinWang/Smart-Calendar-Clock/blob/main/docs/img/PCBup.jpg" width="70%">
