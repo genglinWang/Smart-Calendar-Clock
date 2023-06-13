@@ -1,0 +1,248 @@
+C51 COMPILER V9.59.0.0   LCD12864NEW                                                       06/26/2022 14:33:45 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD12864NEW
+OBJECT MODULE PLACED IN .\Objects\lcd12864new.obj
+COMPILER INVOKED BY: D:\keilv5\C51\BIN\C51.EXE lcd12864new.c COMPACT OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.
+                    -\Listings\lcd12864new.lst) TABS(2) OBJECT(.\Objects\lcd12864new.obj)
+
+line level    source
+
+   1          //#include <reg52.h>
+   2          //#include <intrins.h>
+   3          
+   4          //sbit LCD12864_DA_PORT = P0 ;
+   5          
+   6          //sbit LCD12864_RS_PORT = P2 ^ 3;
+   7          //sbit LCD12864_RW_PORT = P2 ^ 1;
+   8          //sbit LCD12864_E_PORT = P2 ^ 2;
+   9          
+  10          ////********************************************************************
+  11          ////LCD12864  忙 信号检测
+  12          ////********************************************************************
+  13          //void LCD12864_WaitIdle()
+  14          //{
+  15          //  unsigned char i;
+  16          //  LCD12864_DA_PORT = 0xff;
+  17          //  LCD12864_RS_PORT = 0;
+  18          //  LCD12864_RW_PORT = 1;
+  19          //  LCD12864_E_PORT = 1;
+  20          //  while((LCD12864_DA_PORT & 0x01)==1); /*等待BF 不为1*/
+  21          //  LCD12864_E_PORT = 0;
+  22          //  for(i=0;i<5;i++);
+  23          //}
+  24          
+  25          
+  26          ////********************************************************************
+  27          ////检测忙信号写入命令字  com_da 为待写入的命令字
+  28          ////********************************************************************
+  29          //void LCD12864_COM_Write( unsigned char com_da)  
+  30          //{
+  31          //  LCD12864_WaitIdle();
+  32          //  LCD12864_RS_PORT = 0;
+  33          //  LCD12864_RW_PORT = 0;
+  34          //  LCD12864_DA_PORT = com_da;
+  35          //  LCD12864_E_PORT = 1;
+  36          //  _nop_();
+  37          //  _nop_();  
+  38          //  _nop_();
+  39          //  _nop_();
+  40          //  _nop_();
+  41          //  _nop_();
+  42          //  _nop_();
+  43          //  _nop_();
+  44          //  LCD12864_E_PORT = 0;  
+  45          //}
+  46          
+  47          ////********************************************************************
+  48          ////不检测忙信号写入命令字    com_da 为待写入的命令字
+  49          ////********************************************************************
+  50          //void LCD12864_NoWaitIdle_COM_Write(unsigned char com_da)  
+  51          //{
+  52          //  LCD12864_RS_PORT = 0;
+  53          //  LCD12864_RW_PORT = 0;
+  54          //  LCD12864_DA_PORT = com_da;
+C51 COMPILER V9.59.0.0   LCD12864NEW                                                       06/26/2022 14:33:45 PAGE 2   
+
+  55          //  LCD12864_E_PORT = 1;
+  56          //  _nop_();
+  57          //  _nop_();
+  58          //  _nop_();
+  59          //  _nop_();
+  60          //  _nop_();
+  61          //  _nop_();
+  62          //  _nop_();
+  63          //  _nop_();
+  64          //  LCD12864_E_PORT = 0;  
+  65          //}
+  66          
+  67          ////********************************************************************
+  68          ////数据写入    da  为待写入的8位数据
+  69          ////********************************************************************
+  70          //void LCD12864_Data_Write(unsigned char da)
+  71          
+  72          //{
+  73          //  LCD12864_WaitIdle(); /*检测忙信号*/
+  74          //  LCD12864_RS_PORT = 1;
+  75          //  LCD12864_RW_PORT = 0;
+  76          //  LCD12864_DA_PORT = da;
+  77          //  LCD12864_E_PORT = 1;
+  78          //  _nop_();
+  79          //  _nop_();
+  80          //  _nop_();
+  81          //  _nop_();
+  82          //  _nop_();
+  83          //  _nop_();
+  84          //  _nop_();
+  85          //  _nop_();
+  86          //  LCD12864_E_PORT = 0;  
+  87          //}
+  88          
+  89          
+  90          ////*************************************************************************************
+  91          ////写连续字符函数
+  92          ////*************************************************************************************
+  93          //void LCD12864_write_word(unsigned char *s)
+  94          //{
+  95          //  while(*s>0)
+  96          //  {
+  97          //    LCD12864_Data_Write(*s);
+  98          //    s++;
+  99          //  }
+ 100          //}
+ 101          
+ 102          ////********************************************************************
+ 103          ////1MS为单位的延时程序，不准确
+ 104          ////********************************************************************
+ 105          //void lcd_delay_ms(unsigned char x)
+ 106          //{
+ 107          //    unsigned char j;
+ 108          //    while(x--){
+ 109          //        for(j=0;j<125;j++)
+ 110          //            {;}
+ 111          //        }   
+ 112          //}
+ 113          
+ 114          
+ 115          ////********************************************************************
+ 116          ////LCD12864初始化
+C51 COMPILER V9.59.0.0   LCD12864NEW                                                       06/26/2022 14:33:45 PAGE 3   
+
+ 117          ////********************************************************************
+ 118          //void LCD12864_Reset()
+ 119          //{
+ 120          //  lcd_delay_ms(100); /*适当延时待LCD自动复位完成*/
+ 121          //  LCD12864_NoWaitIdle_COM_Write(0x30); /*使用8位并口通讯*/
+ 122          //  lcd_delay_ms(10);
+ 123          //  LCD12864_NoWaitIdle_COM_Write(0x30); /*使用8位并口通讯*/
+ 124          //  lcd_delay_ms(10);
+ 125          //  LCD12864_NoWaitIdle_COM_Write(0x0c); /*显示开及光标设置*/
+ 126          //  lcd_delay_ms(10);
+ 127          //  LCD12864_NoWaitIdle_COM_Write(0x01); /*显示清屏*/
+ 128          //  lcd_delay_ms(30);
+ 129          //  LCD12864_NoWaitIdle_COM_Write(0x06); /*DDRAM的地址计数器（AC）加1*/
+ 130          //  lcd_delay_ms(30); 
+ 131          //}
+ 132          
+ 133          
+ 134          ////void LCD12864_PHOTO_SET()
+ 135          ////{
+ 136          ////  LCD12864_COM_Write(0x36);
+ 137          ////  lcd_delay_ms(10);
+ 138          ////  LCD12864_COM_Write(0x36);
+ 139          ////  lcd_delay_ms(10);
+ 140          ////}
+ 141          ////
+ 142          //void LCD12864_HAIZI_SET()
+ 143          //{
+ 144          //  LCD12864_COM_Write(0x30);
+ 145          //  lcd_delay_ms(10);
+ 146          //  LCD12864_COM_Write(0x30);
+ 147          //  lcd_delay_ms(10);
+ 148          //}
+ 149          ////
+ 150          ////
+ 151          ////void LCD12864_HAIZI_WRITE(unsigned char xpos,unsigned char ypos,unsigned char daH,unsigned char daL)
+ 152          //////ST7920 汉字字符写入
+ 153          //////参数说明:   xpos 待写入的X位置
+ 154          //////ypos 待写入的Y位置
+ 155          //////daH 待写入的汉字的高八位 daL待写入的汉字的低八位
+ 156          ////{
+ 157          ////  unsigned char xy_pos;
+ 158          ////  if((xpos>=8)||(ypos>=4) ) return; /*X位置超出显示范围退出*/
+ 159          ////  if(ypos==0)         xy_pos = 0x80 + xpos;
+ 160          ////  else if(ypos==1) xy_pos = 0x90 + xpos; /*计算转换地址*/
+ 161          ////  else if(ypos==2) xy_pos = 0x88 + xpos;
+ 162          ////  else if(ypos==3) xy_pos = 0x98 + xpos;
+ 163          ////  LCD12864_COM_Write(xy_pos); /*写地址*/
+ 164          ////  lcd_delay_ms(1);
+ 165          ////  LCD12864_Data_Write(daH); /*写高八位数据*/
+ 166          ////  lcd_delay_ms(1);  
+ 167          ////  LCD12864_Data_Write(daL); /*写低八位数据*/  
+ 168          ////  lcd_delay_ms(1);
+ 169          ////}
+ 170          ////
+ 171          ////
+ 172          ////void LCD12864_PHOTO_WRITE(unsigned char *img)
+ 173          ////{
+ 174          ////  unsigned char x,y,i,j;
+ 175          ////  unsigned int k=0;
+ 176          ////  y=0x80; /*设置起始 绘图区的 Y地址坐标*/
+ 177          ////  x=0x80; /*设置起始 绘图区的 X地址坐标*/
+ 178          ////  for(i=0;i<32;i++){  /*写上半部*/
+C51 COMPILER V9.59.0.0   LCD12864NEW                                                       06/26/2022 14:33:45 PAGE 4   
+
+ 179          ////    LCD12864_COM_Write(y);
+ 180          ////    LCD12864_COM_Write(x);
+ 181          ////    for(j=0;j<16;j++){
+ 182          ////      LCD12864_Data_Write(img[k]);
+ 183          ////      k++;
+ 184          ////      }
+ 185          ////    y++;
+ 186          ////    }
+ 187          ////  
+ 188          ////  y=0x80; /*设置起始 绘图区的 Y地址坐标*/
+ 189          ////  x=0x88; /*设置起始 绘图区的 X地址坐标*/
+ 190          ////  for(i=0;i<32;i++){  /*写下半部*/
+ 191          ////    LCD12864_COM_Write(y);
+ 192          ////    LCD12864_COM_Write(x);
+ 193          ////    for(j=0;j<16;j++){
+ 194          ////      LCD12864_Data_Write(img[k]);
+ 195          ////      k++;
+ 196          ////      }
+ 197          ////    y++;
+ 198          ////    }
+ 199          ////  
+ 200          ////}
+ 201          //void main()
+ 202          //{
+ 203          //  LCD12864_Reset();
+ 204          //  while(1)
+ 205          //    {
+ 206          //    
+ 207          //    LCD12864_COM_Write(0x80);     //设置指针，第一行
+ 208          //    LCD12864_write_word("202020120236");  
+ 209          //    LCD12864_COM_Write(0x90);     //设置指针，第二行
+ 210          //    LCD12864_write_word("202020120236");  
+ 211          //    LCD12864_COM_Write(0x88);     //设置指针，第三行
+ 212          //    LCD12864_write_word("202020120236");  
+ 213          //    LCD12864_COM_Write(0x98);     //设置指针，第四行
+ 214          
+ 215          ////    LCD12864_NoWaitIdle_COM_Write(0x01); /*显示清屏*/
+ 216          //  }
+ 217          
+ 218          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

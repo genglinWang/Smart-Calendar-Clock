@@ -1,0 +1,82 @@
+C51 COMPILER V9.59.0.0   TEXT2VOICE                                                        06/29/2022 00:42:25 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE TEXT2VOICE
+OBJECT MODULE PLACED IN .\Objects\Text2Voice.obj
+COMPILER INVOKED BY: D:\keilv5\C51\BIN\C51.EXE Text2Voice.c COMPACT ROM(COMPACT) OPTIMIZE(9,SPEED) BROWSE DEBUG OBJECTEX
+                    -TEND PRINT(.\Listings\Text2Voice.lst) TABS(2) OBJECT(.\Objects\Text2Voice.obj)
+
+line level    source
+
+   1          //# include <string.h>
+   2          //# include <stdio.h>
+   3          //# include <reg52.h>
+   4          //# include "tts.h"
+   5          
+   6          //uchar voice[16];
+   7          //void Uart_Init(void)
+   8          //{
+   9          //  TL1=0xfa; //在11.0592MHz晶振下，设置波特率9600，工作方式2
+  10          //  TH1=0xfa;
+  11          //  TMOD=0x20;
+  12          //  SCON=0x50;  //串口工作方式1，允许接收
+  13          //  PCON=0x80;
+  14          //  EA=0;
+  15          //  REN=1;
+  16          //  TI=0;   //发送中断标志位
+  17          //  RI=0;   //接收中断标志位
+  18          //  TR1=1;    //定时器1用作波特率发生器
+  19          //}
+  20          //char putchar(char c)
+  21          //{
+  22          //  TI=0;
+  23          //  SBUF=c;
+  24          //  while(TI==0);
+  25          //  return 1;
+  26          //}
+  27          ///*
+  28          //Delay_ms:延迟1ms函数（非精确）
+  29          //返回:无
+  30          //参数:x 多少个1ms
+  31          //*/
+  32          //void Delay_ms(int x)
+  33          //{
+  34          //  volatile int i,j;
+  35          //  for(i=0;i<x;i++)
+  36          //  {
+  37          //    for(j=0;j<5000;j++);
+  38          //  }
+  39          //}
+  40          
+  41          /////*
+  42          ////main:主函数 串口循环发送"大家好"
+  43          ////返回:无
+  44          ////参数:无
+  45          ////*/
+  46          ////void main(void)
+  47          ////{
+  48          ////  Uart_Init();//串口初始化
+  49          ////  while(1)
+  50          ////  {
+  51          ////    printf("大家好");   //串口输出"大家好"
+  52          ////    Delay_ms(5000);   //延迟5秒
+  53          ////  }
+  54          ////}
+C51 COMPILER V9.59.0.0   TEXT2VOICE                                                        06/29/2022 00:42:25 PAGE 2   
+
+  55          
+  56          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
